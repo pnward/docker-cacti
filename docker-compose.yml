@@ -1,8 +1,8 @@
 mysql:
   image: mariadb
   env_file: .env
-  volumes:
-    - "/etc/localtime:/etc/localtime:ro"
+#  volumes:
+#    - "/etc/localtime:/etc/localtime:ro"
 
 cacti:
   image: vault/cacti
@@ -11,5 +11,5 @@ cacti:
   links:
     - "mysql:mysql"
   env_file: .env
-  volumes:
-    - "/etc/localtime:/etc/localtime:ro"
+#  volumes:
+#    - "/etc/localtime:/etc/localtime:ro"
