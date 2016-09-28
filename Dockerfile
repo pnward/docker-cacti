@@ -1,7 +1,7 @@
 FROM alpine:edge
 MAINTAINER Christoph Dwertmann <cdwertmann@gmail.com>
 
-RUN apk --update add python py-pip lighttpd php5 cacti net-snmp-tools fcgi php5-cgi mariadb-client perl && \
+RUN apk --update add python py2-pip lighttpd php5 php5-pear iputils cacti net-snmp-tools fcgi php5-cgi mariadb-client perl && \
     rm /var/cache/apk/*
 RUN pip install supervisor supervisor-stdout
 RUN ln -s /usr/share/webapps/cacti /var/www/localhost/htdocs/cacti && \
