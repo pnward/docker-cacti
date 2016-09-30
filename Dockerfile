@@ -14,5 +14,6 @@ RUN ln -s /usr/share/webapps/cacti /var/www/localhost/htdocs/cacti && \
 
 ADD supervisord.conf /etc/supervisord.conf
 ADD init.sh /
+ADD plugin:discovery-v1.5-1.tgz /var/www/localhost/htdocs/cacti/plugins/
 
 CMD /init.sh
