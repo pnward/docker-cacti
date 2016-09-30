@@ -10,10 +10,11 @@ RUN ln -s /usr/share/webapps/cacti /var/www/localhost/htdocs/cacti && \
     sed -i '/#   include "mod_fastcgi.conf"/s/^#//g' /etc/lighttpd/lighttpd.conf && \
     sed -i 's/memory_limit = 128M/memory_limit = 512M/g' /etc/php5/php.ini && \
     echo "fastcgi.debug=1" >> /etc/lighttpd/lighttpd.conf && \
-    echo "* * * * * php /usr/share/webapps/cacti/poller.php > /dev/null 2>&1" > /etc/crontabs/lighttpd
+    echo "* * * * * php /usr/share/webapps/cacti/poller.php > /dev/null 2>&1" > /etc/crontabs/lighttpd && \
+    cd /var/www/localhost/htdocs/cacti/plugins && \
+    wget http://docs.cacti.net/_media/plugin:discovery-v1.5-1.tgz -O - | tar xz
 
 ADD supervisord.conf /etc/supervisord.conf
 ADD init.sh /
-ADD plugin:discovery-v1.5-1.tgz /var/www/localhost/htdocs/cacti/plugins/
 
 CMD /init.sh
