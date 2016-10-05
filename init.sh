@@ -3,5 +3,4 @@ sed -i "s/\$database_hostname = \"localhost\";/\$database_hostname = \"mysql\";/
 sed -i "s/\$database_default = \"cacti\";/\$database_default = \"$MYSQL_DATABASE\";/g" /var/www/localhost/htdocs/cacti/include/config.php
 sed -i "s/\$database_username = \"cactiuser\";/\$database_username = \"$MYSQL_USER\";/g" /var/www/localhost/htdocs/cacti/include/config.php
 sed -i "s/\$database_password = \"cactiuser\";/\$database_password = \"$MYSQL_PASSWORD\";/g" /var/www/localhost/htdocs/cacti/include/config.php
-sed -i "s/date.timezone = UTC/date.timezone = $TIMEZONE/g" /etc/php5/php.ini
 exec supervisord --nodaemon --configuration /etc/supervisord.conf
