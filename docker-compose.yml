@@ -1,5 +1,5 @@
 mysql:
-  image: mariadb
+  image: yobasystems/alpine-mariadb
   env_file: .env
 
 cacti:
